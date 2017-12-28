@@ -53,7 +53,7 @@ EOF
 # install webpack
 yarn add -D webpack webpack-dev-server html-webpack-plugin copy-webpack-plugin
 yarn add -D babel-loader style-loader css-loader file-loader url-loader
-wget "https://raw.githubusercontent.com/vladzadvorny/team-chat-client/master/webpack.config.js"
+wget "https://raw.githubusercontent.com/vladzadvorny/setup-environment/master/webpack.config.js"
 
 # other
 cat > .gitignore << EOF
@@ -65,7 +65,14 @@ cat > .eslintignore << EOF
 dist
 registerServiceWorker.js
 EOF
-mkdir src
 
 # install react 
 yarn add react react-dom react-hot-loader
+
+mkdir src
+cd src
+wget "https://raw.githubusercontent.com/vladzadvorny/setup-environment/master/react/index.js" -P src
+wget "https://raw.githubusercontent.com/vladzadvorny/setup-environment/master/react/registerServiceWorker.js" -P src
+wget "https://raw.githubusercontent.com/vladzadvorny/setup-environment/master/react/App.js" -P src
+wget "https://raw.githubusercontent.com/vladzadvorny/setup-environment/master/react/index.html" -P src
+wget "https://github.com/vladzadvorny/setup-environment/blob/master/react/favicon.ico" -P src
