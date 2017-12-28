@@ -12,7 +12,7 @@ $ brew install wget
 
 ### Run
 
-Copy script to directory and run for backend:
+Сopy and run in the terminal for backend:
 
 ```
 $ wget "https://raw.githubusercontent.com/vladzadvorny/setup-environment/master/server.sh" && sh server.sh
