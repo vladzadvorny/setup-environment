@@ -12,9 +12,14 @@ $ brew install wget
 
 ### Run
 
-Copy script to directory and run:
+Copy script to directory and run for backend:
 
 ```
-$ sh server.sh
-$ sh react.sh
+$ wget "https://raw.githubusercontent.com/vladzadvorny/setup-environment/master/server.sh" && sh server.sh
+```
+
+or for client:
+
+```
+$ wget "https://raw.githubusercontent.com/vladzadvorny/setup-environment/master/react.sh" && sh react.sh
 ```

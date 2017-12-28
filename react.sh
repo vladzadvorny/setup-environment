@@ -2,9 +2,9 @@
 
 yarn init -y
 
-# scripts
+# package.json
 tmp=$(mktemp)    
-jq '.scripts.build = "rm -rf dist && cross-env NODE_ENV=production webpack -p" | .scripts.serve = "PORT=3002 webpack-dev-server" | .scripts.lint = "eslint src"' package.json > "$tmp" && mv "$tmp" package.json
+jq 'del(.main) | .version = "0.0.1" | .scripts.build = "rm -rf dist && cross-env NODE_ENV=production webpack -p" | .scripts.serve = "PORT=3002 webpack-dev-server" | .scripts.lint = "eslint src"' package.json > "$tmp" && mv "$tmp" package.json
 
 # install babel
 yarn add -D babel-core babel-preset-env babel-preset-react babel-plugin-transform-class-properties babel-plugin-transform-object-rest-spread babel-plugin-transform-runtime 
@@ -70,9 +70,11 @@ EOF
 yarn add react react-dom react-hot-loader
 
 mkdir src
-cd src
 wget "https://raw.githubusercontent.com/vladzadvorny/setup-environment/master/react/index.js" -P src
 wget "https://raw.githubusercontent.com/vladzadvorny/setup-environment/master/react/registerServiceWorker.js" -P src
 wget "https://raw.githubusercontent.com/vladzadvorny/setup-environment/master/react/App.js" -P src
 wget "https://raw.githubusercontent.com/vladzadvorny/setup-environment/master/react/index.html" -P src
 wget "https://github.com/vladzadvorny/setup-environment/blob/master/react/favicon.ico" -P src
+
+# remove
+rm -rf react.sh
