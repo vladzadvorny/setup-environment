@@ -23,6 +23,17 @@ const config = {
     path: path.join(__dirname, 'dist'),
     filename: isProduction ? '[name].[chunkhash].js' : '[name].js'
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all'
+        }
+      }
+    }
+  },
   devServer: {
     hot: true,
     historyApiFallback: true,
@@ -51,9 +62,6 @@ const config = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     new webpack.NamedModulesPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['manifest']
-    }),
     new CopyWebpackPlugin([
       // relative path is from src
       { from: './src/favicon.ico' } // <- your path to favicon

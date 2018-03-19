@@ -51,7 +51,7 @@ cat > .eslintrc << EOF
 EOF
 
 # install webpack
-yarn add -D webpack webpack-dev-server html-webpack-plugin copy-webpack-plugin
+yarn add -D webpack webpack-dev-server html-webpack-plugin copy-webpack-plugin webpack-cli
 yarn add -D babel-loader style-loader css-loader file-loader url-loader
 wget "https://raw.githubusercontent.com/vladzadvorny/setup-environment/master/webpack.config.js"
 
